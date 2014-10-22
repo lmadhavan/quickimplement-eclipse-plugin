@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Quick Implement for Eclipse JDT Tests
+Bundle-SymbolicName: com.lmadhavan.eclipse.jdt.quickimplement.tests
+Bundle-Version: 1.0.0.qualifier
+Fragment-Host: com.lmadhavan.eclipse.jdt.quickimplement;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ClassPath: lib/org.mockito_1.9.5.v201311280930.jar,
+ lib/org.objenesis_1.0.0.v201105211943.jar,
+ .
+Require-Bundle: org.junit;bundle-version="4.11.0",
+ org.eclipse.core.databinding;bundle-version="1.4.2"
+Bundle-Vendor: Madhavan Lakshminarayanan

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension point="org.eclipse.jdt.ui.quickAssistProcessors">
+   		<quickAssistProcessor
+         	id="com.lmadhavan.eclipse.jdt.quickAssistProcessors.quickimplement"
+	        class="com.lmadhavan.eclipse.jdt.quickimplement.QuickImplementProcessor">
+	    </quickAssistProcessor>
+   </extension>
+</plugin>
