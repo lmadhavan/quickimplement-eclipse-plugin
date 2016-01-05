@@ -43,27 +43,25 @@ public class QuickImplementProcessor implements IQuickAssistProcessor {
 
         if (node instanceof SimpleName) {
             ITypeBinding typeBinding = ((SimpleName) node).resolveTypeBinding();
-            return resolveTypeBinding(typeBinding);
+            
+            if (canImplementType(typeBinding)) {
+                return typeBinding;
+            }
         }
 
         return null;
     }
 
-    private static IType resolveEnclosingType(IInvocationContext context) {
-        return context.getCompilationUnit().findPrimaryType();
+    private static boolean canImplementType(ITypeBinding typeBinding) {
+        if (typeBinding == null) {
+            return false;
+        }
+        
+        int modifiers = typeBinding.getModifiers();
+        return !Modifier.isFinal(modifiers) && (typeBinding.isClass() || typeBinding.isInterface());
     }
 
-    static ITypeBinding resolveTypeBinding(ITypeBinding typeBinding) {
-        if (typeBinding == null) {
-            return null;
-        }
-
-        int modifiers = typeBinding.getModifiers();
-
-        if (Modifier.isFinal(modifiers)) {
-            return null;
-        }
-
-        return typeBinding;
+    private static IType resolveEnclosingType(IInvocationContext context) {
+        return context.getCompilationUnit().findPrimaryType();
     }
 }
